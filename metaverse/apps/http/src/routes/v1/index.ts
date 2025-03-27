@@ -1,17 +1,32 @@
 import { Router } from "express";
+import { adminRouter } from "./admin";
+import { userRouter } from "./user";
+import { spaceRouter } from "./space";
 
 export const router = Router();
 
-router.get("/signup", (req, res) => {
+router.post("/signup", (req, res) => {
     res.json({
         message: "Signup"
     })
 }) 
 
 
-router.get("/signin", (req, res) => {
+router.post("/signin", (req, res) => {
     res.json({
         message: "Signin"
     })
 }) 
 
+router.get("/elements", (req, res) => {
+    
+})  
+
+router.get("/avatars", (req, res) => {
+    
+})
+
+
+router.use("/user", userRouter);
+router.use("/space", spaceRouter);
+router.use("/admin", adminRouter);
